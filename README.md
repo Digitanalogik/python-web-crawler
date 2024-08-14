@@ -31,5 +31,9 @@ __Run the program__
 python3 fingerpori-crawler.py
 ```
 
-__ Enjoy with wide smile!__
+__Enjoy with wide smile!__
 
+```
+~Tatu Soininen~
+  -=[ 2024 ]=-
+```
