@@ -5,7 +5,7 @@ import bs4
 # Define constants
 base_url = 'https://www.kaleva.fi'
 start_page = base_url + '/sarjakuvat/fingerpori/6313167'
-max_iterations = 50  # Set a limit to avoid infinite loop
+max_iterations = 500  # Set a limit to avoid infinite loop
 images_dir = 'images'
 
 def create_images_directory():
