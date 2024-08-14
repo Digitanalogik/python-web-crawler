@@ -1,3 +1,4 @@
+import os
 import requests
 import bs4
 
@@ -5,13 +6,20 @@ import bs4
 base_url = 'https://www.kaleva.fi'
 start_page = base_url + '/sarjakuvat/fingerpori/6313167'
 max_iterations = 50  # Set a limit to avoid infinite loop
+images_dir = 'images'
+
+def create_images_directory():
+    if not os.path.exists(images_dir):
+        os.makedirs(images_dir)
 
 def download_image(url):
     print('Downloading ' + url)
     res = requests.get(url, stream=True)
     if res.status_code == 200:
         # Extract the filename from the URL
-        filename = url.split('/')[-1]
+        filename = os.path.join(images_dir, url.split('/')[-1])
+
+        # filename = url.split('/')[-1]
         print('Filename: ' + filename)
         with open(filename, 'wb') as f:
             for chunk in res.iter_content():
@@ -45,6 +53,8 @@ def find_previous_comic_url(page_content):
 def main():
     comic_page_url = start_page
     iterations = 0
+
+    create_images_directory()
 
     while comic_page_url and iterations < max_iterations:
         page_content = fetch_comic_page(comic_page_url)
