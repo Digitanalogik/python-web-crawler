@@ -1,6 +1,7 @@
 import os
 import requests
 import bs4
+import time
 
 # Define constants
 base_url = 'https://www.kaleva.fi'
@@ -27,10 +28,19 @@ def download_image(url):
     else:
         print('Failed to download image, status code:', res.status_code)
 
-def fetch_comic_page(url):
-    res = requests.get(url)
-    res.raise_for_status()
-    return res.text
+def fetch_comic_page(url, retries=3, delay=5):
+    for attempt in range(retries):
+        try:
+            res = requests.get(url)
+            res.raise_for_status()
+            return res.text
+        except requests.exceptions.HTTPError as e:
+            if res.status_code == 504:
+                print(f"Attempt {attempt + 1} failed with status 504. Retrying in {delay} seconds...")
+                time.sleep(delay)
+            else:
+                raise
+    raise Exception(f"Failed to fetch the comic page after {retries} attempts due to status 504.")
 
 def parse_comic_image_url(page_content):
     soup = bs4.BeautifulSoup(page_content, 'html.parser')
