@@ -1,0 +1,35 @@
+# Python web crawler
+
+## Fingerpori comic strip downloader example
+
+### Python dependency libraries
+
+- [Requests](https://requests.readthedocs.io/en/latest/)
+- [Beautiful Soup](https://beautiful-soup-4.readthedocs.io/en/latest/)
+
+__Create Python virtual environment__
+
+```bash
+python3 -m venv venv
+```
+
+__Activate Python virtual environment__
+
+```bash
+source venv/bin/activate
+```
+
+__Install dependencies__
+
+```bash
+pip install -r requirements.txt
+```
+
+__Run the program__
+
+```bash
+python3 fingerpori-crawler.py
+```
+
+__ Enjoy with wide smile!__
+
