@@ -35,8 +35,8 @@ def fetch_comic_page(url, retries=3, delay=5):
             res.raise_for_status()
             return res.text
         except requests.exceptions.HTTPError as e:
-            if res.status_code == 504:
-                print(f"Attempt {attempt + 1} failed with status 504. Retrying in {delay} seconds...")
+            if res.status_code == 502 or res.status_code == 504:
+                print(f"Attempt {attempt + 1} failed with status {res.status_code}. Retrying in {delay} seconds...")
                 time.sleep(delay)
             else:
                 raise
