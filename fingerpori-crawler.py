@@ -33,7 +33,7 @@ def fetch_comic_page(url):
     return res.text
 
 def parse_comic_image_url(page_content):
-    soup = bs4.BeautifulSoup(page_content, "html.parser")
+    soup = bs4.BeautifulSoup(page_content, 'html.parser')
     cart = soup.select('div.cartoon-strip__image > img')
     if cart:
         return cart[0]['src']
@@ -42,7 +42,7 @@ def parse_comic_image_url(page_content):
         return None
 
 def find_previous_comic_url(page_content):
-    soup = bs4.BeautifulSoup(page_content, "html.parser")
+    soup = bs4.BeautifulSoup(page_content, 'html.parser')
     prev_link = soup.select('a.cartoon-strip__change-date')  # Adjust the selector based on the actual HTML structure
     if prev_link:
         return base_url + prev_link[0]['href']
@@ -63,13 +63,14 @@ def main():
         if comic_image_url:
             print('Comic image URL:', comic_image_url)
             download_image(comic_image_url)
-            print("Image downloaded successfully.")
+            print('Image downloaded successfully.')
         else:
-            print("Failed to find comic image URL.")
+            print('Failed to find comic image URL.')
             break
         
         print('----------------------------------------')
         comic_page_url = find_previous_comic_url(page_content)
+        print('Moving to:', comic_page_url)
         iterations += 1
 
 if __name__ == "__main__":
