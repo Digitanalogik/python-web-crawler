@@ -19,8 +19,6 @@ def download_image(url):
     if res.status_code == 200:
         # Extract the filename from the URL
         filename = os.path.join(images_dir, url.split('/')[-1])
-
-        # filename = url.split('/')[-1]
         print('Filename: ' + filename)
         with open(filename, 'wb') as f:
             for chunk in res.iter_content():
