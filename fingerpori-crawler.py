@@ -38,7 +38,7 @@ def fetch_comic_page(url, retries=3, delay=5):
                 time.sleep(delay)
             else:
                 raise
-    raise Exception(f"Failed to fetch the comic page after {retries} attempts due to status 504.")
+    raise Exception(f"Failed to fetch the comic page after {retries} attempts due to status {res.status_code}.")
 
 def parse_comic_image_url(page_content):
     soup = bs4.BeautifulSoup(page_content, 'html.parser')
