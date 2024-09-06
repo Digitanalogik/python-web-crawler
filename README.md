@@ -2,7 +2,7 @@
 
 ![Fingerpori - Asiakaslähtöisyys](./Fingerpori-Client.jpg)
 
-## Fingerpori comic strip downloader example
+## Fingerpori comic strip downloader
 
 ### Python dependency libraries
 
