@@ -35,6 +35,8 @@ python3 fingerpori-crawler.py
 
 __Enjoy with wide smile!__
 
+P.S. Tested up to 3500+ downloaded images with bigger values in `max_iterations` and changing `start_page`.
+
 ```
 ~Tatu Soininen~
   -=[ 2024 ]=-
