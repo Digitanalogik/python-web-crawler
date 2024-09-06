@@ -1,4 +1,6 @@
-# Python web crawler
+# Python web crawler 🤓🐍😅
+
+![Fingerpori - Asiakaslähtöisyys](./Fingerpori-Client.jpg)
 
 ## Fingerpori comic strip downloader example
 
